@@ -1,19 +1,18 @@
-
-import { CssLoaderConfig, SassLoaderConfig } from '../config/webpack.project.config';
-
 export default ({config, mode}) => {
-
 
   const extraRules = [
     {
       test: /\.scss$/,
       use: [
+        'style-loader',
         {
-          loader: 'style-loader',
+          loader: 'css-loader',
+          query: {
+            modules: true,
+          },
         },
-        CssLoaderConfig,
         'resolve-url-loader',
-        SassLoaderConfig,
+        'sass-loader',
       ],
     },
   ];

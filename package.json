@@ -13,15 +13,14 @@
     "build": "npm-run-all build-lib",
     "build-lib": "npm-run-all build-lib-package build-lib-code build-lib-transform",
     "build-lib-code": "webpack -p --config ./config/webpack.lib.production.config.js",
-    "build-lib-transform": "babel --root-mode upward  -d ./dist/component-library --ignore ./dist/component-library/src/index.js ./dist/component-library",
-    "build-lib-config": "babel --root-mode upward  -d ./dist/component-library/config ./dist/component-library/config",
+    "build-lib-transform": "babel --root-mode upward  -d ./dist/simplest-react-scss-lib --ignore ./dist/simplest-react-scss-lib/src/index.js ./dist/simplest-react-scss-lib",
+    "build-lib-config": "babel --root-mode upward  -d ./dist/simplest-react-scss-lib/config ./dist/simplest-react-scss-lib/config",
     "build-lib-package": "babel-node ./scripts/build-lib-package.js",
     "version": "npm-run-all changelog build",
     "postversion": "npm-run-all release",
-    "release": "npm-run-all release-lib release-css-lib",
-    "release-lib": "npm run --prefix ./dist/component-library release-me",
-    "release-me": "npm publish",
-    "release-css-lib": "npm run --prefix ./dist/component-library-css release-me"
+    "release": "npm-run-all release-lib",
+    "release-lib": "npm run --prefix ./dist/simplest-react-scss-lib release-me",
+    "release-me": "npm publish"
   },
   "repository": {
     "type": "git",

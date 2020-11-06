@@ -1,8 +1,6 @@
 import path from 'path';
 
-import { GLOBALS_SRC, OUTPUT_DIR_CODE, OUTPUT_GLOBALS_SRC } from './config';
-
-import { CssLoaderConfig, SassLoaderConfig } from './webpack.project.config';
+import { OUTPUT_DIR_CODE } from './config';
 
 export default {
   mode: 'production',
@@ -32,12 +30,17 @@ export default {
         }
       },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.scss$/,
         use: [
           'style-loader',
-          CssLoaderConfig,
+          {
+            loader: 'css-loader',
+            query: {
+              modules: true,
+            },
+          },
           'resolve-url-loader',
-          SassLoaderConfig,
+          'sass-loader',
         ],
       },
     ],
